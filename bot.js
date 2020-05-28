@@ -16,7 +16,7 @@ client.on('message', message => {
             if (typeof variable !== 'undefined') {
                  message.reply('Opravdu chceš zvolit ' + command + '?\nJeho ID je: ' + user.id);
             }else{
-                message.reply('Uživatel, kterého chceš zvolit, neexistuje! :dvormenovaprdel:');
+                message.reply('Uživatel, kterého chceš zvolit, neexistuje! \:dvormenovaprdel:');
             }
         }
     }
