@@ -77,27 +77,12 @@ let data = '';
   // The whole response has been received. Print out the result.
   resp.on('end', () => {
     console.log(JSON.parse(data).explanation);
-       pole = [];
+       pole = "";
        for(let i = 0; i < JSON.parse(data).length; i++) {
-            pole.push({name: i+1 + ') <@' + JSON.parse(data)[i].kdo + '>', value: 'Počet hlasů: ' + JSON.parse(data)[i].kolik});
+            pole=pole + i+1 + ') <@' + JSON.parse(data)[i].kdo + '>  Počet hlasů: ' + JSON.parse(data)[i].kolik + "\n";
       //pole.push({name: "Jméno1", value: "Počet hlasů: 0"});
        }
-           message.reply({embed: {
-    color: 3447003,
-    author: {
-      name: client.user.username,
-      icon_url: client.user.avatarURL
-    },
-    title: "Aktuální výsledky voleb",
-    description: "Takto zatím vypadají výsledky voleb:",
-    fields: pole,
-    timestamp: new Date(),
-    footer: {
-      icon_url: client.user.avatarURL,
-      text: "Volební systém"
-    }
-  }
-});
+           message.reply("Výsledky voleb:\n" + pole);
       
       
       
