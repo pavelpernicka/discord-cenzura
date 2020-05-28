@@ -66,35 +66,23 @@ client.on('message', message => {
     }else if(firstWord === 'pořadí'){
         
         
-        pole = [];
         
 https.get('http://www.programy1.borec.cz/gjs-meteo/discord-volby.php', (resp) => {
 let data = '';
-pole.push({name: "tady", value: "Počet hlasů: 0"});
   // A chunk of data has been recieved.
   resp.on('data', (chunk) => {
     data += chunk;
-      pole.push({name: "chunk", value: "Počet hlasů: 0"});
   });
 
   // The whole response has been received. Print out the result.
   resp.on('end', () => {
     console.log(JSON.parse(data).explanation);
-      // for(let i = 0; i < JSON.parse(data).length; i++) {
-  //pole.push({name: JSON.parse(data)[0].kdo, value: JSON.parse(data)[0].kolik});
-      pole.push({name: "Jméno1", value: "Počet hlasů: 0"});
-  });
-
-}).on("error", (err) => {
-  console.log("Error: " + err.message);
-    pole.push({name: "Chyba", value: err.message});
-});
-
-        
-        pole.push({name: "Jméno1", value: "Počet hlasů: 0"});
-        pole.push({name: "Jméno1", value: "Počet hlasů: 0"});
-        
-        message.reply({embed: {
+       pole = [];
+       for(let i = 0; i < JSON.parse(data).length; i++) {
+            pole.push({name: JSON.parse(data)[i].kdo, value: JSON.parse(data)[i].kolik});
+      //pole.push({name: "Jméno1", value: "Počet hlasů: 0"});
+       }
+           message.reply({embed: {
     color: 3447003,
     author: {
       name: client.user.username,
@@ -110,6 +98,19 @@ pole.push({name: "tady", value: "Počet hlasů: 0"});
     }
   }
 });
+      
+      
+      
+      
+      
+  });
+
+}).on("error", (err) => {
+  console.log("Error: " + err.message);
+});
+
+        
+       
     }
 
 });
