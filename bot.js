@@ -79,7 +79,8 @@ let data = '';
     console.log(JSON.parse(data).explanation);
        pole = "";
        for(let i = 0; i < JSON.parse(data).length; i++) {
-            pole=pole + i+1 + ') <@' + JSON.parse(data)[i].kdo + '>  Počet hlasů: ' + JSON.parse(data)[i].kolik + "\n";
+           var por = i+1
+            pole=pole + por + ') <@' + JSON.parse(data)[i].kdo + '>  Počet hlasů: ' + JSON.parse(data)[i].kolik + "\n";
       //pole.push({name: "Jméno1", value: "Počet hlasů: 0"});
        }
            message.reply("Výsledky voleb:\n" + pole);
