@@ -6,11 +6,8 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-    for (var i=0;i< message.content.length;i++)
-    {
-        var words =  message.content[i].split(" ");
-     }
-    if (words[0] === 'volím') {
+    var firstWord = message.content.replace(/ .*/,'');
+    if (firstWord === 'volím') {
 
        message.reply('Koho volíš?');
 
@@ -21,5 +18,4 @@ client.on('message', message => {
  
 
 // THIS  MUST  BE  THIS  WAY
-
 client.login(process.env.BOT_TOKEN);//BOT_TOKEN is the Client Secret
