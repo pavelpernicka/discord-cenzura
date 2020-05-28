@@ -13,7 +13,11 @@ client.on('message', message => {
             message.reply('Koho volíš?\nJestli chceš volit, napiš mi "volím uživatelské jméno"');
         }else{
             let user = client.users.find("username", command);
-            message.reply('Opravdu chceš zvolit ' + command + '?\nJeho ID je: ' + user.id);
+            if (typeof variable !== 'undefined') {
+                 message.reply('Opravdu chceš zvolit ' + command + '?\nJeho ID je: ' + user.id);
+            }else{
+                message.reply('Uživatel, kterého chceš zvolit, neexistuje! :dvormenovaprdel:');
+            }
         }
     }
 
