@@ -12,7 +12,7 @@ client.on('message', message => {
         if(firstWord === command){
             message.reply('Koho volíš?\nJestli chceš volit, napiš mi "volím uživatelské jméno"');
         }else{
-            if (typeof client.users.find("username", command) !== 'undefined') {
+            if ( typeof client.users.find("username", command) !== 'undefined' && client.users.find("username", command) ) {
                  let user = client.users.find("username", command);
                  message.reply('Opravdu chceš zvolit <@' + user.id + '>?');
             }else{
