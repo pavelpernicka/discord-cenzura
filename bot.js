@@ -64,7 +64,26 @@ client.on('message', message => {
             }
         }
     }else if(firstWord === 'pořadí'){
-        message.reply('Aktuální pořadí:');
+        message.reply({embed: {
+    color: 3447003,
+    author: {
+      name: client.user.username,
+      icon_url: client.user.avatarURL
+    },
+    title: "Aktuální výsledky voleb",
+    description: "Takto zatím vypadají výsledky voleb:",
+    fields: [{
+        name: "Jméno",
+        value: "Počet hlasů: 1"
+      }
+    ],
+    timestamp: new Date(),
+    footer: {
+      icon_url: client.user.avatarURL,
+      text: "Volební systém"
+    }
+  }
+});
     }
 
 });
