@@ -63,7 +63,7 @@ client.on('message', message => {
                 message.reply('Uživatel, kterého chceš zvolit, neexistuje!');
             }
         }
-    }elseif(firstWord === 'pořadí'){
+    }else if(firstWord === 'pořadí'){
         message.reply('Aktuální pořadí:');
     }
 
