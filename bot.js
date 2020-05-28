@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const https = require('https');
+const https = require('http');
 
 client.on('ready', () => {
     console.log('Bot ready!');
