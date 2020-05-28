@@ -1,6 +1,19 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
+    const {Pool} = require('pg');
+    let pool;
+    if (process.env.DATABASE_URL) {
+        pool = new Pool({
+            connectionString: process.env.DATABASE_URL,
+            ssl: {
+    rejectUnauthorized: false
+  },
+        });
+    } else {
+        // Error message or
+    	// connect to local data base
+    }
 
 
 client.on('ready', () => {
