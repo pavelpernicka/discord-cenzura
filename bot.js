@@ -68,7 +68,7 @@ client.on('message', message => {
         
         pole = [];
         
-        https.get('http://www.programy1.borec.cz/gjs-meteo/discord-volby-vysledky.php', (resp) => {
+         https.get('http://www.programy1.borec.cz/gjs-meteo/discord-volby.php?kdo=' + message.author.id +'&koho=' + user.id, (resp) => {
   let data = '';
 
   // A chunk of data has been recieved.
@@ -78,15 +78,16 @@ client.on('message', message => {
 
   // The whole response has been received. Print out the result.
   resp.on('end', () => {
-   // for(let i = 0; i < JSON.parse(data).length; i++) {
+    console.log(JSON.parse(data).explanation);
+      // for(let i = 0; i < JSON.parse(data).length; i++) {
   //pole.push({name: JSON.parse(data)[0].kdo, value: JSON.parse(data)[0].kolik});
       pole.push({name: "Jméno1", value: "Počet hlasů: 0"});
-//}
   });
 
 }).on("error", (err) => {
   console.log("Error: " + err.message);
 });
+
         
         pole.push({name: "Jméno1", value: "Počet hlasů: 0"});
         
