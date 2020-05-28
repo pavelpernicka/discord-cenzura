@@ -35,7 +35,7 @@ client.on('message', message => {
   if (err) throw err;
   for (let row of res.rows) {
     console.log(JSON.stringify(row));
-      message.reply(JSON.stringify(row));
+      message.reply("jede to");
   }
   client.end();
 });
