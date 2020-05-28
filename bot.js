@@ -64,6 +64,14 @@ client.on('message', message => {
             }
         }
     }else if(firstWord === 'pořadí'){
+        
+        
+        pole = [{
+        name: "Jméno",
+        value: "Počet hlasů: 1"
+        }];
+        pole.push({name: "Jméno1", value: "Počet hlasů: 0"});
+        
         message.reply({embed: {
     color: 3447003,
     author: {
@@ -72,11 +80,7 @@ client.on('message', message => {
     },
     title: "Aktuální výsledky voleb",
     description: "Takto zatím vypadají výsledky voleb:",
-    fields: [{
-        name: "Jméno",
-        value: "Počet hlasů: 1"
-      }
-    ],
+    fields: pole,
     timestamp: new Date(),
     footer: {
       icon_url: client.user.avatarURL,
