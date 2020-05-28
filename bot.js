@@ -1,22 +1,18 @@
 const Discord = require('discord.js');
-
 const client = new Discord.Client();
 
- 
-
 client.on('ready', () => {
-
-    console.log('I am ready!');
-
+    console.log('Bot ready!');
 });
 
- 
-
 client.on('message', message => {
+    for (var i=0;i< message.content.length;i++)
+    {
+        var words =  message.content[i].split(" ");
+     }
+    if (words[0] === 'volím') {
 
-    if (message.content === 'ping') {
-
-       message.reply('pong');
+       message.reply('Koho volíš?');
 
        }
 
