@@ -79,7 +79,7 @@ client.on('message', message => {
   // The whole response has been received. Print out the result.
   resp.on('end', () => {
     for(let i = 0; i < JSON.parse(data).length; i++) {
-  pole.push({name: JSON.parse(data)[i].kdo, value: "Počet hlasů: " + JSON.parse(data)[i].kolik});
+  pole.push({name: JSON.parse(data)[i].kdo, value: JSON.parse(data)[i].kolik});
 }
   });
 
