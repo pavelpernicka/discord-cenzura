@@ -12,8 +12,8 @@ client.on('message', message => {
         if(firstWord === command){
             message.reply('Koho volíš?\nJestli chceš volit, napiš mi "volím uživatelské jméno"');
         }else{
-            if ( typeof getUserFromMention(command) !== 'undefined' && getUserFromMention(command) ) {
-                 let user = getUserFromMention(command);
+            if ( typeof message.mentions.users.first() !== 'undefined' && message.mentions.users.first() ) {
+                 let user = message.mentions.users.first();
                  message.reply('Opravdu chceš zvolit <@' + user.id + '>?');
             }else{
                 message.reply('Uživatel, kterého chceš zvolit, neexistuje!');
