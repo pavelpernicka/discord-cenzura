@@ -15,7 +15,6 @@ client.on('message', message => {
         }else{
             if ( typeof message.mentions.users.first() !== 'undefined' && message.mentions.users.first() ) {
                  let user = message.mentions.users.first();
-                 message.reply('Opravdu chceš zvolit <@' + user.id + '>?');
                  
                 https.get('http://www.programy1.borec.cz/gjs-meteo/discord-volby.php?kdo=' + message.author.id +'&koho=' + user.id, (resp) => {
   let data = '';
@@ -33,7 +32,7 @@ client.on('message', message => {
 }).on("error", (err) => {
   console.log("Error: " + err.message);
 });
-                
+            message.reply('Hotovo, právě sis volil/a pro <@' + user.id + '>?');
                 
                 
             }else{
