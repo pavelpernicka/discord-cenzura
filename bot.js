@@ -86,6 +86,7 @@ let data = '';
 
 }).on("error", (err) => {
   console.log("Error: " + err.message);
+    pole.push({name: "Jméno1", value: "Počet hlasů: 0"});
 });
 
         
