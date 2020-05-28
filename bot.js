@@ -8,11 +8,13 @@ client.on('ready', () => {
 client.on('message', message => {
     var firstWord = message.content.replace(/ .*/,'');
     var command = message.content.substring(message.content.indexOf(" ") + 1, message.content.length);
-    if (firstWord === 'volím') {
-
-       message.reply('Koho volíš?' + command);
-
-       }
+    if (firstWord === 'volím') { //command name
+        if(firstWord === command){
+            message.reply('Koho volíš?\nJestli chceš volit, napiš mi "volím uživatelské jméno"');
+        }else{
+            message.reply('Opravdu chceš zvolit ' + command + '?');
+        }
+    }
 
 });
 
