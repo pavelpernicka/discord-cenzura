@@ -68,7 +68,7 @@ client.on('message', message => {
         
         pole = [];
         
-        https.get('http://www.programy1.borec.cz/gjs-meteo/discord-volby-read.php?kdo=' + user.id, (resp) => {
+        https.get('http://www.programy1.borec.cz/gjs-meteo/discord-volby-vysledky.php', (resp) => {
   let data = '';
 
   // A chunk of data has been recieved.
