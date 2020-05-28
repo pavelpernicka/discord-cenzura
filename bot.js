@@ -14,7 +14,7 @@ const client = new Discord.Client();
         // Error message or
     	// connect to local data base
     }
-
+pool.connect();
 
 client.on('ready', () => {
     console.log('Bot ready!');
