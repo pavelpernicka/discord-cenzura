@@ -15,7 +15,8 @@ client.on('message', message => {
         }else{
             if ( typeof message.mentions.users.first() !== 'undefined' && message.mentions.users.first() ) {
                  let user = message.mentions.users.first();
-                 
+                 if(message.author.id !== user.id){
+                     
                 https.get('http://www.programy1.borec.cz/gjs-meteo/discord-volby.php?kdo=' + message.author.id +'&koho=' + user.id, (resp) => {
   let data = '';
 
@@ -32,8 +33,31 @@ client.on('message', message => {
 }).on("error", (err) => {
   console.log("Error: " + err.message);
 });
-            message.reply('Hotovo, právě sis volil/a pro <@' + user.id + '>?');
-                
+                     
+
+  https.get('http://www.programy1.borec.cz/gjs-meteo/discord-volby-read.php?kdo=' + user.id, (resp) => {
+  let data = '';
+
+  // A chunk of data has been recieved.
+  resp.on('data', (chunk) => {
+    data += chunk;
+  });
+
+  // The whole response has been received. Print out the result.
+  resp.on('end', () => {
+    console.log(JSON.parse(data)[0]);
+    message.reply('Hotovo, právě si volil/a pro <@' + user.id + '>\nTento člověk má tolik hlasů: ' + JSON.parse(data)[0])
+  });
+
+}).on("error", (err) => {
+  console.log("Error: " + err.message);
+});
+                     
+                     
+            ;
+                 }else{
+                     message.reply('Nemůžeš volit sám sebe!');
+                 }
                 
             }else{
                 message.reply('Uživatel, kterého chceš zvolit, neexistuje!');
