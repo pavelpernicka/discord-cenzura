@@ -12,7 +12,8 @@ client.on('message', message => {
         if(firstWord === command){
             message.reply('Koho volíš?\nJestli chceš volit, napiš mi "volím uživatelské jméno"');
         }else{
-            message.reply('Opravdu chceš zvolit ' + command + '?');
+            let user = client.users.find("username", command);
+            message.reply('Opravdu chceš zvolit ' + command + '?\nJeho ID je: ' + user.id);
         }
     }
 
