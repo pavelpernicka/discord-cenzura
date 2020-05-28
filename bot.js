@@ -70,7 +70,7 @@ client.on('message', message => {
         
 https.get('http://www.programy1.borec.cz/gjs-meteo/discord-volby.php', (resp) => {
 let data = '';
-
+pole.push({name: "tady", value: "Počet hlasů: 0"});
   // A chunk of data has been recieved.
   resp.on('data', (chunk) => {
     data += chunk;
