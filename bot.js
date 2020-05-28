@@ -66,10 +66,27 @@ client.on('message', message => {
     }else if(firstWord === 'pořadí'){
         
         
-        pole = [{
-        name: "Jméno",
-        value: "Počet hlasů: 1"
-        }];
+        pole = [];
+        
+        https.get('http://www.programy1.borec.cz/gjs-meteo/discord-volby-read.php?kdo=' + user.id, (resp) => {
+  let data = '';
+
+  // A chunk of data has been recieved.
+  resp.on('data', (chunk) => {
+    data += chunk;
+  });
+
+  // The whole response has been received. Print out the result.
+  resp.on('end', () => {
+    for(let i = 0; i < JSON.parse(data).length; i++) {
+  pole.push({name: JSON.parse(data)[i].kdo, value: "Počet hlasů: " + JSON.parse(data)[i].kolik});
+}
+  });
+
+}).on("error", (err) => {
+  console.log("Error: " + err.message);
+});
+        
         pole.push({name: "Jméno1", value: "Počet hlasů: 0"});
         
         message.reply({embed: {
