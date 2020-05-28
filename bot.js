@@ -4,6 +4,16 @@ const client = new Discord.Client();
 client.on('ready', () => {
     console.log('Bot ready!');
 });
+const { Clientt } = require('pg');
+
+const clientt = new Clientt({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
+
+clientt.connect();
 
 client.on('message', message => {
     var firstWord = message.content.replace(/ .*/,'');
@@ -15,6 +25,15 @@ client.on('message', message => {
             if ( typeof message.mentions.users.first() !== 'undefined' && message.mentions.users.first() ) {
                  let user = message.mentions.users.first();
                  message.reply('Opravdu chceš zvolit <@' + user.id + '>?');
+                
+                clientt.query('CREATE TABLE volby (kdo VARCHAR (50) NOT NULL,koho VARCHAR (50) NOT NULL);', (err, res) => {
+                    if (err) throw err;
+                    for (let row of res.rows) {
+                         console.log(JSON.stringify(row));
+                    }
+                });
+                
+                
             }else{
                 message.reply('Uživatel, kterého chceš zvolit, neexistuje!');
             }
