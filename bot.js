@@ -31,7 +31,13 @@ client.on('message', message => {
                  let user = message.mentions.users.first();
                  message.reply('Opravdu chceš zvolit <@' + user.id + '>?');
                  
-                
+                pool.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
+  if (err) throw err;
+  for (let row of res.rows) {
+    console.log(JSON.stringify(row));
+  }
+  client.end();
+});
                 
             }else{
                 message.reply('Uživatel, kterého chceš zvolit, neexistuje!');
