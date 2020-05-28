@@ -91,6 +91,7 @@ let data = '';
 
         
         pole.push({name: "Jméno1", value: "Počet hlasů: 0"});
+        pole.push({name: "Jméno1", value: "Počet hlasů: 0"});
         
         message.reply({embed: {
     color: 3447003,
