@@ -7,13 +7,13 @@ client.on('ready', () => {
 
 client.on('message', message => {
     var firstWord = message.content.replace(/ .*/,'');
-    var command = message.content.substring(message.content.indexOf(" ") + 1, message.content.length);
+    var command = message.content.substring(message.content.indexOf(" ") + 1, message.content.length).replace('@', '');
     if (firstWord === 'volím') { //command name
         if(firstWord === command){
             message.reply('Koho volíš?\nJestli chceš volit, napiš mi "volím uživatelské jméno"');
         }else{
-            let user = client.users.find("username", command);
-            if (typeof user !== 'undefined') {
+            if (typeof client.users.find("username", command) !== 'undefined') {
+                 let user = client.users.find("username", command);
                  message.reply('Opravdu chceš zvolit <@' + user.id + '>?');
             }else{
                 message.reply('Uživatel, kterého chceš zvolit, neexistuje!');
