@@ -79,8 +79,8 @@ let data = '';
     console.log(JSON.parse(data).explanation);
        pole = [];
        for(let i = 0; i < JSON.parse(data).length; i++) {
-           // pole.push({name: JSON.parse(data)[i].kdo, value: JSON.parse(data)[i].kolik});
-      pole.push({name: "Jméno1", value: "Počet hlasů: 0"});
+            pole.push({name: i+1 + ') ' + JSON.parse(data)[i].kdo, value: JSON.parse(data)[i].kolik});
+      //pole.push({name: "Jméno1", value: "Počet hlasů: 0"});
        }
            message.reply({embed: {
     color: 3447003,
