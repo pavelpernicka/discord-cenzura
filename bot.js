@@ -80,10 +80,10 @@ let data = '';
        pole = "";
        for(let i = 0; i < JSON.parse(data).length; i++) {
            var por = i+1
-            pole=pole + por + ') <@' + JSON.parse(data)[i].kdo + '>  Počet hlasů: ' + JSON.parse(data)[i].kolik + "\n";
+            pole=pole + por + ') <@' + JSON.parse(data)[i].kdo + '>  Počet hlasů: *' + JSON.parse(data)[i].kolik + "*\n";
       //pole.push({name: "Jméno1", value: "Počet hlasů: 0"});
        }
-           message.reply("Výsledky voleb:\n" + pole);
+           message.reply("**Výsledky voleb:**\n" + pole);
       
       
       
