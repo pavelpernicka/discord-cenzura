@@ -1,21 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-    const {Pool} = require('pg');
-    let pool;
-    if (process.env.DATABASE_URL) {
-        pool = new Pool({
-            connectionString: process.env.DATABASE_URL,
-            ssl: {
-    rejectUnauthorized: false
-  },
-        });
-    } else {
-        // Error message or
-    	// connect to local data base
-    }
-pool.connect();
-
 client.on('ready', () => {
     console.log('Bot ready!');
 });
@@ -29,16 +14,8 @@ client.on('message', message => {
         }else{
             if ( typeof message.mentions.users.first() !== 'undefined' && message.mentions.users.first() ) {
                  let user = message.mentions.users.first();
-                 //message.reply('Opravdu chceš zvolit <@' + user.id + '>?');
+                 message.reply('Opravdu chceš zvolit <@' + user.id + '>?');
                  
-                pool.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
-  if (err) throw err;
-  for (let row of res.rows) {
-    console.log(JSON.stringify(row));
-      message.reply("jede to");
-  }
-  client.end();
-});
                 
             }else{
                 message.reply('Uživatel, kterého chceš zvolit, neexistuje!');
