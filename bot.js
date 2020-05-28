@@ -7,9 +7,11 @@ client.on('ready', () => {
 
 client.on('message', message => {
     var firstWord = message.content.replace(/ .*/,'');
+    var command = message.content.substring(message.content.indexOf(" ") + 1, message.content.length);
     if (firstWord === 'volím') {
 
        message.reply('Koho volíš?');
+       message.reply(command);
 
        }
 
