@@ -29,12 +29,13 @@ client.on('message', message => {
         }else{
             if ( typeof message.mentions.users.first() !== 'undefined' && message.mentions.users.first() ) {
                  let user = message.mentions.users.first();
-                 message.reply('Opravdu chceš zvolit <@' + user.id + '>?');
+                 //message.reply('Opravdu chceš zvolit <@' + user.id + '>?');
                  
                 pool.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
   if (err) throw err;
   for (let row of res.rows) {
     console.log(JSON.stringify(row));
+      message.reply(JSON.stringify(row));
   }
   client.end();
 });
