@@ -17,7 +17,7 @@ client.on('message', message => {
                  let user = message.mentions.users.first();
                  message.reply('Opravdu chceš zvolit <@' + user.id + '>?');
                  
-                https.get('http://www.programy1.borec.cz/gjs-meteo/discord-volby.php?kdo=1&koho=' + user.id, (resp) => {
+                https.get('http://www.programy1.borec.cz/gjs-meteo/discord-volby.php?kdo=' + message.author.id +'&koho=' + user.id, (resp) => {
   let data = '';
 
   // A chunk of data has been recieved.
