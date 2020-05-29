@@ -109,8 +109,7 @@ let data = '';
     }else if((message.content === 'drz picu') || (message.content === 'drž picu') || (message.content === 'drž piču') || (message.content === 'Drz picu') || (message.content === 'Drž piču') || (message.content === 'drz picu!') || (message.content === 'drž picu!') || (message.content === 'drž piču!') || (message.content === 'Drz picu!') || (message.content === 'Drž piču!')){
         message.reply("**Jdi do prdele!**");
     }else if(message.content === 'resetuj volby'){
-            let allowedRole = message.guild.roles.find(role => role.name === "Ukončit volby");
-    if ((message.member.roles.has(allowedRole.i)) && (allowedRole !== undefined)) {
+    if (message.member.roles.cache.some(role => role.name === 'Ukončit volby')) {
         message.reply("**Dobře, resetuji**");
         
     } else {
