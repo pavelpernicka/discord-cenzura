@@ -109,7 +109,7 @@ let data = '';
     }else if((message.content === 'drz picu') || (message.content === 'drž picu') || (message.content === 'drž piču') || (message.content === 'Drz picu') || (message.content === 'Drž piču') || (message.content === 'drz picu!') || (message.content === 'drž picu!') || (message.content === 'drž piču!') || (message.content === 'Drz picu!') || (message.content === 'Drž piču!')){
         message.reply("**Jdi do prdele!**");
     }else if(message.content === 'resetuj volby'){
-    if (message.member.roles.cache.some(role => role.name === 'Ukončit volby')) {
+    if (message.member.roles.cache.some(role => role.name === 'Volby')) {
         message.reply("**Dobře, resetuji**");
         
     } else {
