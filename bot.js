@@ -46,7 +46,7 @@ client.on('message', message => {
   // The whole response has been received. Print out the result.
   resp.on('end', () => {
     console.log(JSON.parse(data)[0]);
-      var hlasu = JSON.parse(data)[0] + 1;
+      var hlasu = JSON.parse(data)[0]++;
     message.reply('Hotovo, právě si volil/a pro <@' + user.id + '>\nTento člověk má tolik hlasů: ' + hlasu + '\nPokud chceš znát aktualní pořadí, napiš "pořadí" nebo "výsledky"')
   });
 
@@ -80,7 +80,7 @@ let data = '';
     console.log(JSON.parse(data).explanation);
        pole = "";
        for(let i = 0; i < JSON.parse(data).length; i++) {
-           var por = i+1
+           var por = i+1;
             pole=pole + por + ') <@' + JSON.parse(data)[i].kdo + '>  Počet hlasů: *' + JSON.parse(data)[i].kolik + "*\n";
       //pole.push({name: "Jméno1", value: "Počet hlasů: 0"});
        }
