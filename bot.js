@@ -110,7 +110,7 @@ let data = '';
         message.reply("**Jdi do prdele!**");
     }else if(message.content === 'resetuj volby'){
             let allowedRole = message.guild.roles.find(role => role.name === "Ukončit volby");
-    if ((message.member.roles.has(allowedRole.i && (allowedRole !== undefined)) {
+    if ((message.member.roles.has(allowedRole.i)) && (allowedRole !== undefined)) {
         message.reply("**Dobře, resetuji**");
         
     } else {
