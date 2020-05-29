@@ -64,7 +64,7 @@ client.on('message', message => {
                 message.reply('Uživatel, kterého chceš zvolit, neexistuje!');
             }
         }
-    }else if(firstWord === 'pořadí' or firstWord === 'výsledky'){
+    }else if((firstWord === 'pořadí') || (firstWord === 'výsledky')){
         
         
         
@@ -98,6 +98,8 @@ let data = '';
 
         
        
+    }else if((message.content === 'drz picu') || (message.content === 'drž picu') || (message.content === 'drž piču') || (message.content === 'Drz picu') || (message.content === 'Drž piču') || (message.content === 'drz picu!') || (message.content === 'drž picu!') || (message.content === 'drž piču!') || (message.content === 'Drz picu!') || (message.content === 'Drž piču!')){
+        message.reply("**Jdi do prdele!**");
     }
 
 });
