@@ -46,7 +46,7 @@ client.on('message', message => {
   // The whole response has been received. Print out the result.
   resp.on('end', () => {
     console.log(JSON.parse(data)[0]);
-      var hlasu = JSON.parse(data)[0]++;
+      var hlasu = parseInt(JSON.parse(data)[0])+1;
     message.reply('Hotovo, právě jsi volil/a pro <@' + user.id + '>\nTento člověk má tolik hlasů: ' + hlasu + '\nPokud chceš znát aktualní pořadí, napiš "pořadí" nebo "výsledky"\n(svůj hlas můžeš kdykoliv během hlasování změnit)')
   });
 
