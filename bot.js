@@ -109,7 +109,13 @@ let data = '';
     }else if((message.content === 'drz picu') || (message.content === 'drž picu') || (message.content === 'drž piču') || (message.content === 'Drz picu') || (message.content === 'Drž piču') || (message.content === 'drz picu!') || (message.content === 'drž picu!') || (message.content === 'drž piču!') || (message.content === 'Drz picu!') || (message.content === 'Drž piču!')){
         message.reply("**Jdi do prdele!**");
     }else if(message.content === 'resetuj volby'){
-           
+            let allowedRole = message.guild.roles.find(role => role.name === "Ukončit volby");
+    if ((message.member.roles.has(allowedRole.i && (allowedRole !== undefined)) {
+        message.reply("**Dobře, resetuji**");
+        
+    } else {
+       message.reply("**Smůla, nemáš na to právo**");
+    }
         
         
     }else if((message.content === 'jak mam volit') || (message.content === 'jak mám volit') || (message.content === 'Jak mám volit') || (message.content === 'Jak mam volit') || (message.content === 'Jak mám volit?') || (message.content === 'jak mám volit?') || (message.content === 'jak mam volit?')){
