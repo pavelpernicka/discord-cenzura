@@ -47,7 +47,7 @@ client.on('message', message => {
   resp.on('end', () => {
     console.log(JSON.parse(data)[0]);
       var hlasu = JSON.parse(data)[0]++;
-    message.reply('Hotovo, právě si volil/a pro <@' + user.id + '>\nTento člověk má tolik hlasů: ' + hlasu + '\nPokud chceš znát aktualní pořadí, napiš "pořadí" nebo "výsledky"')
+    message.reply('Hotovo, právě jsi volil/a pro <@' + user.id + '>\nTento člověk má tolik hlasů: ' + hlasu + '\nPokud chceš znát aktualní pořadí, napiš "pořadí" nebo "výsledky"\n(svůj hlas můžeš kdykoliv během hlasování změnit)')
   });
 
 }).on("error", (err) => {
@@ -100,6 +100,13 @@ let data = '';
        
     }else if((message.content === 'drz picu') || (message.content === 'drž picu') || (message.content === 'drž piču') || (message.content === 'Drz picu') || (message.content === 'Drž piču') || (message.content === 'drz picu!') || (message.content === 'drž picu!') || (message.content === 'drž piču!') || (message.content === 'Drz picu!') || (message.content === 'Drž piču!')){
         message.reply("**Jdi do prdele!**");
+    }else if(message.content === 'resetuj volby'){
+        message.reply("**Dobře, resetuji**");
+        
+        
+        
+    }else if((message.content === 'jak mam volit') || (message.content === 'Jak mám volit') || (message.content === 'Jak mam volit') || (message.content === 'Jak mám volit?') || (message.content === 'jak mám volit?') || (message.content === 'jak mam volit?')){
+        message.reply("**Všechny příkazy, které bot ovládá:**\nvolím *@jméno*\n(svůj hlas můžete kdykoliv během hlasování měnit)\npořadí/výsledky/výsledky voleb\n(vypíše aktuální pořadí)\nReaguje na některé nadávky");
     }
 
 });
