@@ -98,8 +98,6 @@ let data = '';
 
         
        
-    }else if(message.content === 'drz picu' or message.content === 'drž picu' or message.content === 'drž piču' or message.content === 'Drz picu' or message.content === 'Drž piču' or message.content === 'drz picu!' or message.content === 'drž picu!' or message.content === 'drž piču!' or message.content === 'Drz picu!' or message.content === 'Drž piču!'){
-        message.reply("**Jdi do prdele!**");
     }
 
 });
