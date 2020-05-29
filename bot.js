@@ -9,7 +9,7 @@ client.on('ready', () => {
 client.on('message', message => {
     var firstWord = message.content.replace(/ .*/,'');
     var command = message.content.substring(message.content.indexOf(" ") + 1, message.content.length);
-    if (firstWord === 'volím') { //command name
+    if ((firstWord === 'volím') || (firstWord === 'volim')) { //command name
         if(firstWord === command){
             message.reply('Koho volíš?\nJestli chceš volit, napiš mi "volím @jméno" (prostě jako zmínku)');
         }else{
@@ -114,7 +114,7 @@ let data = '';
         
         
     }else if((message.content === 'jak mam volit') || (message.content === 'Jak mám volit') || (message.content === 'Jak mam volit') || (message.content === 'Jak mám volit?') || (message.content === 'jak mám volit?') || (message.content === 'jak mam volit?')){
-        message.reply("**Všechny příkazy, které bot ovládá:**\nvolím *@jméno*\n(svůj hlas můžete kdykoliv během hlasování měnit)\npořadí/výsledky/výsledky voleb\n(vypíše aktuální pořadí)\nReaguje na některé nadávky");
+        message.reply("**Všechny příkazy, které bot ovládá:**\nvolím *@jméno*\n(svůj hlas můžete kdykoliv během hlasování měnit)\npořadí/výsledky/výsledky voleb\n(vypíše aktuální pořadí)\nReaguje na některé nadávky\nresetuj volby\n(resetuje volby, toto můžou spustit jenom lidi s požadovanými rolemi)");
     }
 
 });
