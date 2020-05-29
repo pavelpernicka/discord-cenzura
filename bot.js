@@ -35,6 +35,14 @@ client.on('message', message => {
 });
                      
 
+                     var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > 1000){
+      break;
+    }
+  }
+                     
+                     
   https.get('http://www.programy1.borec.cz/gjs-meteo/discord-volby-read.php?kdo=' + user.id, (resp) => {
   let data = '';
 
@@ -47,9 +55,6 @@ client.on('message', message => {
   resp.on('end', () => {
     console.log(JSON.parse(data)[0]);
       var hlasu = parseInt(JSON.parse(data)[0]);
-      if(hlasu==0){
-          hlasu++;
-      }
     message.reply('Hotovo, právě jsi volil/a pro <@' + user.id + '>\nTento člověk má tolik hlasů: ' + hlasu + '\nPokud chceš znát aktualní pořadí, napiš "pořadí" nebo "výsledky"\n(svůj hlas můžeš kdykoliv během hlasování změnit)')
   });
 
