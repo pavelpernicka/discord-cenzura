@@ -11,7 +11,7 @@ client.on('message', message => {
     var command = message.content.substring(message.content.indexOf(" ") + 1, message.content.length);
     if (firstWord === 'volím') { //command name
         if(firstWord === command){
-            message.reply('Koho volíš?\nJestli chceš volit, napiš mi "volím uživatelské jméno"');
+            message.reply('Koho volíš?\nJestli chceš volit, napiš mi "volím @jméno" (prostě jako zmínku)');
         }else{
             if ( typeof message.mentions.users.first() !== 'undefined' && message.mentions.users.first() ) {
                  let user = message.mentions.users.first();
@@ -46,7 +46,8 @@ client.on('message', message => {
   // The whole response has been received. Print out the result.
   resp.on('end', () => {
     console.log(JSON.parse(data)[0]);
-    message.reply('Hotovo, právě si volil/a pro <@' + user.id + '>\nTento člověk má tolik hlasů: ' + JSON.parse(data)[0])
+      var hlasu = JSON.parse(data)[0] + 1;
+    message.reply('Hotovo, právě si volil/a pro <@' + user.id + '>\nTento člověk má tolik hlasů: ' + hlasu + '\nPokud chceš znát aktualní pořadí, napiš "pořadí" nebo "výsledky"')
   });
 
 }).on("error", (err) => {
@@ -63,7 +64,7 @@ client.on('message', message => {
                 message.reply('Uživatel, kterého chceš zvolit, neexistuje!');
             }
         }
-    }else if(firstWord === 'pořadí'){
+    }else if(firstWord === 'pořadí' or firstWord === 'výsledky'){
         
         
         
@@ -97,6 +98,8 @@ let data = '';
 
         
        
+    }else if(message.content === 'drz picu' or message.content === 'drž picu' or message.content === 'drž piču' or message.content === 'Drz picu' or message.content === 'Drž piču' or message.content === 'drz picu!' or message.content === 'drž picu!' or message.content === 'drž piču!' or message.content === 'Drz picu!' or message.content === 'Drž piču!'){
+        message.reply("**Jdi do prdele!**");
     }
 
 });
