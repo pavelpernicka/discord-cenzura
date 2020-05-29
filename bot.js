@@ -110,7 +110,7 @@ let data = '';
         message.reply("**Jdi do prdele!**");
     }else if(message.content === 'resetuj volby'){
     if (message.member.roles.find(role => role.name === 'Volby')) {
-        https.get('http://www.programy1.borec.cz/gjs-meteo/discord-volby-read.php', (resp) => {
+        https.get('http://www.programy1.borec.cz/gjs-meteo/discord-volby-reset.php', (resp) => {
   let data = '';
 
   // A chunk of data has been recieved.
@@ -125,6 +125,7 @@ let data = '';
 
 }).on("error", (err) => {
   console.log("Error: " + err.message);
+  message.reply("**Rád bych je resetoval, ale nastala chyba**");
 });
         
     } else {
