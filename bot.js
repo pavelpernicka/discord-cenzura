@@ -55,7 +55,7 @@ client.on('message', message => {
   resp.on('end', () => {
     console.log(JSON.parse(data)[0]);
       var hlasu = parseInt(JSON.parse(data)[0]);
-    message.reply('Hotovo, právě jsi volil/a pro <@' + user.id + '>\nTento člověk má tolik hlasů: ' + hlasu + '\nPokud chceš znát aktualní pořadí, napiš "pořadí" nebo "výsledky"\n(svůj hlas můžeš kdykoliv během hlasování změnit)')
+    message.reply('Hotovo, právě jsi volil/a pro <@' + user.id + '>\n(svůj hlas můžeš kdykoliv během hlasování změnit)\nPokud chceš znát aktualní pořadí, napiš "pořadí" nebo "výsledky"')
   });
 
 }).on("error", (err) => {
