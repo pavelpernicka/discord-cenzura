@@ -1,3 +1,2 @@
-# discord-voting-bot
-Just a simple discord bot in JS for voting.
-Uses api on my old personal website.
+# discord-cenzura
+Jednoduchý discord bot, co bude mazat zprávy s určitým slovem
